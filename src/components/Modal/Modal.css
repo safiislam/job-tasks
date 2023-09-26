@@ -32,5 +32,17 @@
   
   .modal-content {
     /* Add your modal content styles here */
+    padding: 20px; /* Add padding to the content */
+    text-align: center; /* Center-align text */
   }
   
+  /* Style headings and paragraphs within the modal content */
+  .modal-content h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .modal-content p {
+    font-size: 16px;
+    line-height: 1.5;
+  }
