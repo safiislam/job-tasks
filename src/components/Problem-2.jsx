@@ -21,8 +21,18 @@ const Problem2 = (props) => {
     const [open, setOpen] = useState(false);
     const [open1, setOpen1] = useState(false);
 
-    const onOpenModal = () => setOpen(true);
-    const onOpenModal1 = () => setOpen1(true);
+    const onOpenModal = () => {
+        setOpen(true)
+        if(open1) {
+            setOpen1(false)
+        }
+    };
+    const onOpenModal1 = () => {
+        setOpen1(true)
+        if(open) {
+            setOpen(false)
+        }
+    };
     const onCloseModal = () => setOpen(false);
     const onCloseModal1 = () => setOpen1(false);
     return (
@@ -31,8 +41,9 @@ const Problem2 = (props) => {
                 <h2>All contacts</h2>
                 <div>
                     {
-                        datas1?.results?.map(item=><p>{item?.phone}</p>)
+                        datas1?.results?.map(item => <p>{item?.phone}</p>)
                     }
+                    <button className="btn btn-lg btn-outline-warning" type="button" onClick={onOpenModal1} >US Contacts</button>
                 </div>
             </Modal>
             <Modal open={open1} onClose={onCloseModal1} center>
@@ -42,6 +53,7 @@ const Problem2 = (props) => {
                         datas?.results?.map(item => <p>{item?.phone}</p>)
                     }
                 </div>
+                <button className="btn btn-lg btn-outline-primary" type="button" onClick={onOpenModal} >All Contacts</button>
             </Modal>
             <div className="container">
                 <div className="row justify-content-center mt-5">
